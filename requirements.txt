@@ -1,8 +1,22 @@
 fastapi
 uvicorn[standard]
+
+# LangChain Core + Ecosystem
 langchain
-langgraph
-openai
-pypdf
+langchain-core
+langchain-community
+langchain-text-splitters
+langchain-huggingface
+langchain-google-genai
+
+# Vector Store + Embeddings
 faiss-cpu
+sentence-transformers
+
+# Document Processing
+pypdf
 python-dotenv
+
+# LLMs / Agents
+openai
+langgraph
