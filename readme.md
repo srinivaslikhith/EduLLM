@@ -1,75 +1,65 @@
-EduLLM: AI Teaching Assistant
+# 🧠 EduLLM: AI Teaching Assistant
 
-This is a RAG (Retrieval-Augmented Generation) Q&A bot that answers questions about your course materials using Google's Gemini AI.
+A simple RAG-based Q&A bot using local embeddings and Google’s Gemini API.
 
-1. Setup
+---
 
-Clone the repository:
+## ⚙️ Setup
 
-git clone [https://github.com/your-username/EduLLM.git](https://github.com/your-username/EduLLM.git)
+```bash
+# Clone repo
+git clone https://github.com/your-username/EduLLM.git
 cd EduLLM
 
-
-Create and activate a virtual environment:
-
+# Create and activate virtual environment
 python3 -m venv env
-source env/bin/activate
+source env/bin/activate  # On Windows: env\Scripts\activate
 
-
-Install dependencies:
-
+# Install dependencies
 pip install -r requirements.txt
+```
 
+---
 
-2. Configuration
+## 🔧 Configuration
 
-Create a file named .env in the root folder and add the following, filling in your API key.
+Create a `.env` file in the project root:
 
-# Get from Google AI Studio (aistudio.google.com)
-GOOGLE_API_KEY="AIzaSy...Your...Secret...Key"
+```bash
+# Get key from https://aistudio.google.com
+GOOGLE_API_KEY="AIzaSy...YourKey..."
 
-# --- File Path Configuration ---
 DATA_PATH="data/"
 DB_FAISS_PATH="faiss_index"
 EMBEDDING_MODEL_NAME="all-MiniLM-L6-v2"
+```
 
+---
 
-3. Local Usage
+## 💾 Run Locally
 
-Step 1: Ingest Data (One-Time Setup)
-
-This step creates your local "brain" from your documents.
-
-Create the data folder and add your PDFs to it:
-
-mkdir data
-# (Manually add your .pdf files to the 'data' folder)
-
-
-Run the ingestion script:
-
+### 1. Ingest Data (run once)
+Add your PDFs to a `data/` folder, then run:
+```bash
 python ingest.py
+```
 
-
-This will create a faiss_index folder.
-
-Step 2: Run the Q&A Bot
-
-Once your faiss_index exists, you can run the bot.
-
-Run the main.py script:
-
+### 2. Start the Bot
+```bash
 python main.py
+```
+Ask questions at the prompt, type `exit` to quit.
 
+---
 
-Wait for the models to load, then ask questions at the > prompt.
+## 📁 Structure
 
-> what is this course about?
-
-Thinking...
-
---- Answer ---
-Based on the provided materials, this course is an introduction to...
---------------
-
-> exit
+```
+EduLLM/
+├── data/
+├── faiss_index/
+├── ingest.py
+├── main.py
+├── requirements.txt
+└── .env
+```
